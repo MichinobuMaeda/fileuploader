@@ -3,6 +3,7 @@ File Uploader for my dev. server
 
 ```shell script
 $ git clone git@github.com:MichinobuMaeda/fileuploader.git
+$ cd fileuploader
 $ composer install
 $ npm install && npm run production
 $ cp .env.local .env
