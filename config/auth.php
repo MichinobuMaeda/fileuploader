@@ -114,4 +114,6 @@ return [
 
     'password_timeout' => 10800,
 
+    'register' => env('AUTH_REGISTER', false),
+
 ];

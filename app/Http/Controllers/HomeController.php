@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $files = array_filter(
+            scandir(storage_path('app/uploaded/' . Auth()->user()->id)),
+            function ($v) {
+                return $v != '.' && $v != '..';
+            }
+        );
+        return view('home', [ 'files' => $files ]);
     }
 }

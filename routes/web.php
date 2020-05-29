@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes(['register' => config('auth.register', false)]);
 
-Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get(
+    '/users/{user}/files/{file}',
+    'BinaryController@show'
+)->name('users.files.show');
+Route::post(
+    '/users/{user}/files',
+    'BinaryController@update'
+)->name('users.files.create');
