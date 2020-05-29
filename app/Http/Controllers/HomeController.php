@@ -23,10 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $path = 'app/uploaded/' . Auth()->user()->id;
+        $path = storage_path('app/uploaded/' . Auth()->user()->id);
         $files = is_dir($path)
             ? array_filter(
-                scandir(storage_path($path)),
+                scandir($path),
                 function ($v) {
                     return $v != '.' && $v != '..';
                 }
