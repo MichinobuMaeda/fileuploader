@@ -23,5 +23,9 @@ Route::get(
 )->name('users.files.show');
 Route::post(
     '/users/{user}/files',
-    'BinaryController@update'
+    'BinaryController@create'
 )->name('users.files.create');
+Route::delete(
+    '/users/{user}/files',
+    'BinaryController@delete'
+)->name('users.files.delete');
